@@ -49,6 +49,7 @@ import AvatarSunset from "./AvatarSunset.vue";
 type Variant = "bauhaus" | "beam" | "marble" | "pixel" | "ring" | "sunset";
 
 export default defineComponent({
+  name: "Avatar",
   props: {
     variant: {
       type: String as PropType<Variant>,
