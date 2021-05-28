@@ -26,10 +26,10 @@
     "dist"
   ],
   "main": "./dist/vue-boring-avatars.umd.js",
-  "module": "./dist/vue-boring-avatars.es.js",
+  "module": "./dist/vue-boring-avatars.esm.js",
   "exports": {
     ".": {
-      "import": "./dist/vue-boring-avatars.es.js",
+      "import": "./dist/vue-boring-avatars.esm.js",
       "require": "./dist/vue-boring-avatars.umd.js"
     }
   },
