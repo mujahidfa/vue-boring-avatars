@@ -1,6 +1,38 @@
 {
   "name": "vue-boring-avatars",
-  "version": "0.0.0",
+  "version": "0.0.1",
+  "description": "vue-boring-avatars is a Vue.js port of Boring Avatars, a tiny JavaScript React library that generates custom, SVG-based, round avatars from any username and color palette.",
+  "license": "MIT",
+  "homepage": "https://github.com/mujahidfa/vue-boring-avatars",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mujahidfa/vue-boring-avatars"
+  },
+  "bugs": {
+    "url": "https://github.com/mujahidfa/vue-boring-avatars/issues"
+  },
+  "keywords": [
+    "vue",
+    "vue3",
+    "Vue 3",
+    "avatar",
+    "gravatar",
+    "profile picture",
+    "user avatar",
+    "avatar generator",
+    "avatar placeholder"
+  ],
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/vue-boring-avatars.umd.js",
+  "module": "./dist/vue-boring-avatars.es.js",
+  "exports": {
+    ".": {
+      "import": "./dist/vue-boring-avatars.es.js",
+      "require": "./dist/vue-boring-avatars.umd.js"
+    }
+  },
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
