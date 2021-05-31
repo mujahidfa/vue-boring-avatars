@@ -12,13 +12,24 @@ Based on Boring Avatar's description,
 - Similar API with the React version of [Boring Avatars](https://github.com/boringdesigners/boring-avatars).
 
 ## Installation
-
+NPM:
 ```bash
 yarn add vue-boring-avatars
 
 # or
 
 npm install vue-boring-avatars
+```
+
+CDN:
+```html
+<!-- UMD version -->
+<script src="https://unpkg.com/vue-boring-avatars/dist/vue-boring-avatars.umd.js"></script>
+
+<!-- ESM version -->
+<script type="module">
+  import Avatar from 'https://unpkg.com/vue-boring-avatars/dist/vue-boring-avatars.es.js'
+</script>                                                                    
 ```
 
 ## Props
@@ -28,10 +39,10 @@ Props:
 - `size`: number
   - Default: `40`
 - `name`: string
-  - Default: `'Clara Barton'`
+  - Default: `"Clara Barton"`
 - `variant`: string
   - Accepts either of the following: `"bauhaus", "beam", "marble", "pixel", "ring", "sunset"`.
-  - Default: `'bauhaus'`
+  - Default: `"bauhaus"`
 - `colors`: string[]
   - Accepts a string of colors.
   - Default: `["#92A1C6", "#146A7C", "#F0AB3D", "#C271B4", "#C20D90"]`
