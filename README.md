@@ -7,7 +7,7 @@ Based on Boring Avatar's description,
 
 ## Features
 
-- Supports **Vue 3** (no Vue 2 at the moment, sorry!).
+- Supports **Vue 3** (no Vue 2 at the moment, but is in the works. See issue [#1](https://github.com/mujahidfa/vue-boring-avatars/issues/1)).
 - Built using **TypeScript** and comes with TS types.
 - Similar API with the React version of [Boring Avatars](https://github.com/boringdesigners/boring-avatars).
 
