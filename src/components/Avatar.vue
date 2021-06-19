@@ -54,7 +54,7 @@ export default defineComponent({
     variant: {
       type: String as PropType<Variant>,
       required: false,
-      default: "bauhaus",
+      default: "marble",
       validator(value: string) {
         // The value must match one of these strings
         return [
