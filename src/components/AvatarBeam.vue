@@ -14,15 +14,15 @@
       :width="SIZE"
       :height="SIZE"
     >
-      <rect :width="SIZE" :height="SIZE" :rx="20" fill="#fff" />
-    </mask>
-    <g mask="url(#mask__beam)" fill="transparent">
       <rect
         :width="SIZE"
         :height="SIZE"
-        :rx="20"
-        :fill="data.backgroundColor"
+        :rx="!square ? SIZE * 2 : undefined"
+        fill="white"
       />
+    </mask>
+    <g mask="url(#mask__beam)">
+      <rect :width="SIZE" :height="SIZE" :fill="data.backgroundColor" />
       <rect
         :x="0"
         :y="0"
@@ -135,6 +135,11 @@ export default defineComponent({
     name: {
       type: String,
       required: true,
+    },
+    square: {
+      type: Boolean,
+      required: false,
+      default: false,
     },
     size: {
       type: Number,

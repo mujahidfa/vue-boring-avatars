@@ -5,7 +5,6 @@
     xmlns="http://www.w3.org/2000/svg"
     :width="size"
     :height="size"
-    :name="name"
   >
     <mask
       id="mask0"
@@ -16,7 +15,12 @@
       :width="SIZE"
       :height="SIZE"
     >
-      <circle :cx="SIZE / 2" :cy="SIZE / 2" :r="SIZE / 2" fill="#fff" />
+      <rect
+        :width="SIZE"
+        :height="SIZE"
+        :rx="!square ? SIZE * 2 : undefined"
+        fill="white"
+      />
     </mask>
     <g mask="url(#mask0)">
       <rect :width="10" :height="10" :fill="properties[0].color" />
@@ -408,6 +412,11 @@ export default defineComponent({
     name: {
       type: String,
       required: true,
+    },
+    square: {
+      type: Boolean,
+      required: false,
+      default: false,
     },
     size: {
       type: Number,

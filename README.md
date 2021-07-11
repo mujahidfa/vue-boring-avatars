@@ -41,6 +41,8 @@ Props:
 
 - `size`: number
   - Default: `40`
+- `square`: boolean
+  - Default: `false`
 - `name`: string
   - Default: `"Clara Barton"`
 - `variant`: string
@@ -106,11 +108,11 @@ With Composition API:
   <input type="number" v-model.number="size" />
 
   <Avatar :size="size" variant="bauhaus" :name="name" />
-  <Avatar :size="size" variant="beam" :name="name" />
+  <Avatar :size="size" variant="beam" :name="name" :square="true" />
   <Avatar :size="size" variant="marble" :name="name" />
-  <Avatar :size="size" variant="pixel" :name="name" />
+  <Avatar :size="size" variant="pixel" :name="name" :square="true" />
   <Avatar :size="size" variant="ring" :name="name" />
-  <Avatar :size="size" variant="sunset" :name="name" />
+  <Avatar :size="size" variant="sunset" :name="name" :square="true" />
 </template>
 
 <script lang="ts">

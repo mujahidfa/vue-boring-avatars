@@ -8,9 +8,6 @@ configure({ adapter: new Adapter() });
 import VueAvatar from "../src/components/Avatar.vue";
 import ReactAvatar from "boring-avatars";
 
-// import VueTest from "../src/components/Test.vue";
-// import ReactTest from "../src/components/Test.jsx";
-
 import { crush } from "html-crush";
 
 /**
@@ -51,7 +48,7 @@ function htmlToElement(html) {
 }
 
 /**
- *
+ * Check if Vue and React components are equivalent
  *
  * @param {Element} vueWrapper
  * @param {Element} reactWrapper
@@ -79,22 +76,13 @@ const name = "Maria Mitchell";
 const colors = ["#92A1C6", "#146A7C", "#F0AB3D", "#C271B4", "#C20D90"];
 
 // Ensures that the Vue version is the same as the React version
-describe("Avatar", () => {
+describe("Avatar - circle (default)", () => {
   it("renders to the same output as the React version: default props", () => {
     const vueWrapper = mount(VueAvatar);
     const reactWrapper = shallow(<ReactAvatar />);
 
     isEqual(vueWrapper, reactWrapper);
   });
-
-  // it("square: renders to the same output as the React version: default props", () => {
-  //   const vueWrapper = mount(VueAvatar, {
-  //     square: true,
-  //   });
-  //   const reactWrapper = shallow(<ReactAvatar square={true} />);
-
-  //   isEqual(vueWrapper, reactWrapper);
-  // });
 
   it("renders Bauhaus to the same output as the React version", () => {
     const variant = "bauhaus";
@@ -199,6 +187,171 @@ describe("Avatar", () => {
     });
     const reactWrapper = shallow(
       <ReactAvatar size={size} name={name} variant={variant} colors={colors} />
+    );
+
+    isEqual(vueWrapper, reactWrapper);
+  });
+});
+
+const isSquare = true;
+
+describe("Avatar - square", () => {
+  it("renders to the same output as the React version: default props", () => {
+    const vueWrapper = mount(VueAvatar, {
+      props: {
+        square: isSquare,
+      },
+    });
+    const reactWrapper = shallow(<ReactAvatar square={isSquare} />);
+
+    isEqual(vueWrapper, reactWrapper);
+  });
+
+  it("renders Bauhaus to the same output as the React version", () => {
+    const variant = "bauhaus";
+
+    const vueWrapper = mount(VueAvatar, {
+      props: {
+        size: size,
+        name: name,
+        variant: variant,
+        colors: colors,
+        square: isSquare,
+      },
+    });
+    const reactWrapper = shallow(
+      <ReactAvatar
+        size={size}
+        name={name}
+        variant={variant}
+        colors={colors}
+        square={isSquare}
+      />
+    );
+
+    isEqual(vueWrapper, reactWrapper);
+  });
+
+  it("renders Beam to the same output as the React version", () => {
+    const variant = "beam";
+
+    const vueWrapper = mount(VueAvatar, {
+      props: {
+        size: size,
+        name: name,
+        variant: variant,
+        colors: colors,
+        square: isSquare,
+      },
+    });
+    const reactWrapper = shallow(
+      <ReactAvatar
+        size={size}
+        name={name}
+        variant={variant}
+        colors={colors}
+        square={isSquare}
+      />
+    );
+
+    isEqual(vueWrapper, reactWrapper);
+  });
+
+  it("renders Marble to the same output as the React version", () => {
+    const variant = "marble";
+
+    const vueWrapper = mount(VueAvatar, {
+      props: {
+        size: size,
+        name: name,
+        variant: variant,
+        colors: colors,
+        square: isSquare,
+      },
+    });
+    const reactWrapper = shallow(
+      <ReactAvatar
+        size={size}
+        name={name}
+        variant={variant}
+        colors={colors}
+        square={isSquare}
+      />
+    );
+
+    isEqual(vueWrapper, reactWrapper);
+  });
+
+  it("renders Pixel to the same output as the React version", () => {
+    const variant = "pixel";
+
+    const vueWrapper = mount(VueAvatar, {
+      props: {
+        size: size,
+        name: name,
+        variant: variant,
+        colors: colors,
+        square: isSquare,
+      },
+    });
+    const reactWrapper = shallow(
+      <ReactAvatar
+        size={size}
+        name={name}
+        variant={variant}
+        colors={colors}
+        square={isSquare}
+      />
+    );
+
+    isEqual(vueWrapper, reactWrapper);
+  });
+
+  it("renders Ring to the same output as the React version", () => {
+    const variant = "ring";
+
+    const vueWrapper = mount(VueAvatar, {
+      props: {
+        size: size,
+        name: name,
+        variant: variant,
+        colors: colors,
+        square: isSquare,
+      },
+    });
+    const reactWrapper = shallow(
+      <ReactAvatar
+        size={size}
+        name={name}
+        variant={variant}
+        colors={colors}
+        square={isSquare}
+      />
+    );
+
+    isEqual(vueWrapper, reactWrapper);
+  });
+
+  it("renders Sunset to the same output as the React version", () => {
+    const variant = "sunset";
+
+    const vueWrapper = mount(VueAvatar, {
+      props: {
+        size: size,
+        name: name,
+        variant: variant,
+        colors: colors,
+        square: isSquare,
+      },
+    });
+    const reactWrapper = shallow(
+      <ReactAvatar
+        size={size}
+        name={name}
+        variant={variant}
+        colors={colors}
+        square={isSquare}
+      />
     );
 
     isEqual(vueWrapper, reactWrapper);
