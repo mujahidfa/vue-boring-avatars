@@ -1,6 +1,6 @@
 {
   "name": "vue-boring-avatars",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "vue-boring-avatars is a Vue.js port of Boring Avatars, a JS library that generates custom, SVG-based, round avatars from any username and color palette.",
   "license": "MIT",
   "homepage": "https://github.com/mujahidfa/vue-boring-avatars",
@@ -36,18 +36,28 @@
   "types": "./dist/vue-boring-avatars.d.ts",
   "scripts": {
     "dev": "vite",
+    "test": "vite --config vite.config.test.ts",
     "build": "vue-tsc --noEmit && vite build && vue-dts-gen src/components/*.vue && mv src/components/Avatar.d.ts dist/vue-boring-avatars.d.ts && rm -r src/components/Avatar*.d.ts",
     "serve": "vite preview"
   },
   "dependencies": {
-    "vue": "^3.0.0"
+    "vue": "^3.1.4"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^1.2.2",
-    "@vue/compiler-sfc": "^3.0.5",
-    "typescript": "^4.3.2",
-    "vite": "^2.3.4",
+    "@vitejs/plugin-vue": "^1.2.4",
+    "@vue/compiler-sfc": "^3.1.4",
+    "@vue/test-utils": "^2.0.0-rc.10",
+    "boring-avatars": "^1.5.8",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.6",
+    "html-crush": "^4.2.0",
+    "puppeteer": "^10.1.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "typescript": "^4.3.5",
+    "vite": "^2.4.1",
+    "vite-plugin-test": "^0.0.5",
     "vue-dts-gen": "^0.2.3",
-    "vue-tsc": "^0.0.24"
+    "vue-tsc": "^0.2.0"
   }
 }
