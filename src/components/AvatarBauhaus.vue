@@ -14,15 +14,15 @@
       :width="SIZE"
       :height="SIZE"
     >
-      <rect :width="SIZE" :height="SIZE" :rx="SIZE / 2" fill="#fff" />
-    </mask>
-    <g mask="url(#mask__bauhaus)">
       <rect
         :width="SIZE"
         :height="SIZE"
-        :rx="SIZE / 2"
-        :fill="properties[0].color"
+        :rx="!square ? SIZE * 2 : undefined"
+        fill="white"
       />
+    </mask>
+    <g mask="url(#mask__bauhaus)">
+      <rect :width="SIZE" :height="SIZE" :fill="properties[0].color" />
       <rect
         :x="(SIZE - 60) / 2"
         :y="(SIZE - 20) / 2"
@@ -86,6 +86,11 @@ export default defineComponent({
     name: {
       type: String,
       required: true,
+    },
+    square: {
+      type: Boolean,
+      required: false,
+      default: false,
     },
     size: {
       type: Number,

@@ -1,40 +1,11 @@
 <template>
-  <AvatarBauhaus
-    v-if="variant === 'bauhaus'"
+  <component
+    :is="`avatar-${variant}`"
     :colors="colors"
     :name="name"
+    :square="square"
     :size="size"
-  />
-  <AvatarBeam
-    v-if="variant === 'beam'"
-    :colors="colors"
-    :name="name"
-    :size="size"
-  />
-  <AvatarMarble
-    v-if="variant === 'marble'"
-    :colors="colors"
-    :name="name"
-    :size="size"
-  />
-  <AvatarPixel
-    v-if="variant === 'pixel'"
-    :colors="colors"
-    :name="name"
-    :size="size"
-  />
-  <AvatarRing
-    v-if="variant === 'ring'"
-    :colors="colors"
-    :name="name"
-    :size="size"
-  />
-  <AvatarSunset
-    v-if="variant === 'sunset'"
-    :colors="colors"
-    :name="name"
-    :size="size"
-  />
+  ></component>
 </template>
 
 <script lang="ts">
@@ -76,6 +47,11 @@ export default defineComponent({
       type: String,
       required: false,
       default: "Clara Barton",
+    },
+    square: {
+      type: Boolean,
+      required: false,
+      default: false,
     },
     size: {
       type: Number,
