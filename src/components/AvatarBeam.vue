@@ -2,10 +2,12 @@
   <svg
     :viewBox="`0 0 ${SIZE} ${SIZE}`"
     fill="none"
+    role="img"
     xmlns="http://www.w3.org/2000/svg"
     :width="size"
     :height="size"
   >
+    <title>{{ name }}</title>
     <mask
       id="mask__beam"
       maskUnits="userSpaceOnUse"
