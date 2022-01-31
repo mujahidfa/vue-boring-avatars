@@ -21,10 +21,10 @@
         :width="SIZE"
         :height="SIZE"
         :rx="!square ? SIZE * 2 : undefined"
-        fill="white"
+        fill="#FFFFFF"
       />
     </mask>
-    <g mask="url(#mask0)">
+    <g mask="url(#mask__pixel)">
       <rect :width="10" :height="10" :fill="pixelColors[0]" />
       <rect :x="20" :width="10" :height="10" :fill="pixelColors[1]" />
       <rect :x="40" :width="10" :height="10" :fill="pixelColors[2]" />
