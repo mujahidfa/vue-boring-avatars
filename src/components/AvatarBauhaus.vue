@@ -59,13 +59,13 @@
 
 <script lang="ts">
 import { defineComponent, PropType, computed } from "vue";
-import { getNumber, getUnit, getRandomColor, getBoolean } from "../utilities";
+import { hashCode, getUnit, getRandomColor, getBoolean } from "../utilities";
 
 const ELEMENTS = 4;
 const SIZE = 80;
 
 function generateColors(name: string, colors: string[]) {
-  const numFromName = getNumber(name);
+  const numFromName = hashCode(name);
   const range = colors && colors.length;
 
   const elementsProperties = Array.from({ length: ELEMENTS }, (_, i) => ({

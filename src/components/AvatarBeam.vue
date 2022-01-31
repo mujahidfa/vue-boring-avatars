@@ -82,7 +82,7 @@
 <script lang="ts">
 import { defineComponent, PropType, computed } from "vue";
 import {
-  getNumber,
+  hashCode,
   getUnit,
   getBoolean,
   getRandomColor,
@@ -92,7 +92,7 @@ import {
 const SIZE = 36;
 
 function generateData(name: string, colors: string[]) {
-  const numFromName = getNumber(name);
+  const numFromName = hashCode(name);
   const range = colors && colors.length;
   const wrapperColor = getRandomColor(numFromName, colors, range);
   const preTranslateX = getUnit(numFromName, 10, 1);
