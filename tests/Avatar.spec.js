@@ -54,11 +54,17 @@ function htmlToElement(html) {
  * @param {Element} reactWrapper
  */
 function isEqual(vueWrapper, reactWrapper) {
-  const vueHtml = minify(vueWrapper.html());
-  const reactHtml = minify(reactWrapper.html());
+  let vueHtml = minify(vueWrapper.html());
+  let reactHtml = minify(reactWrapper.html());
 
+  // Run the minification 2 times to make sure the minified output is the same.
+  // Cos sometimes running the minifier once results in 2 different output despite the same input.
+  vueHtml = minify(vueHtml);
+  reactHtml = minify(reactHtml);
+
+  // console.log("------ VUE --------");
   // console.log(vueHtml);
-  // console.log("--------------");
+  // console.log("------ REACT --------");
   // console.log(reactHtml);
 
   const vueElement = htmlToElement(vueHtml);
@@ -203,13 +209,10 @@ describe("Avatar - square", () => {
       },
     });
     const reactWrapper = shallow(<ReactAvatar square={isSquare} />);
-
     isEqual(vueWrapper, reactWrapper);
   });
-
   it("renders Bauhaus to the same output as the React version", () => {
     const variant = "bauhaus";
-
     const vueWrapper = mount(VueAvatar, {
       props: {
         size: size,
@@ -228,13 +231,10 @@ describe("Avatar - square", () => {
         square={isSquare}
       />
     );
-
     isEqual(vueWrapper, reactWrapper);
   });
-
   it("renders Beam to the same output as the React version", () => {
     const variant = "beam";
-
     const vueWrapper = mount(VueAvatar, {
       props: {
         size: size,
@@ -253,13 +253,10 @@ describe("Avatar - square", () => {
         square={isSquare}
       />
     );
-
     isEqual(vueWrapper, reactWrapper);
   });
-
   it("renders Marble to the same output as the React version", () => {
     const variant = "marble";
-
     const vueWrapper = mount(VueAvatar, {
       props: {
         size: size,
@@ -278,13 +275,10 @@ describe("Avatar - square", () => {
         square={isSquare}
       />
     );
-
     isEqual(vueWrapper, reactWrapper);
   });
-
   it("renders Pixel to the same output as the React version", () => {
     const variant = "pixel";
-
     const vueWrapper = mount(VueAvatar, {
       props: {
         size: size,
@@ -303,13 +297,10 @@ describe("Avatar - square", () => {
         square={isSquare}
       />
     );
-
     isEqual(vueWrapper, reactWrapper);
   });
-
   it("renders Ring to the same output as the React version", () => {
     const variant = "ring";
-
     const vueWrapper = mount(VueAvatar, {
       props: {
         size: size,
@@ -328,13 +319,10 @@ describe("Avatar - square", () => {
         square={isSquare}
       />
     );
-
     isEqual(vueWrapper, reactWrapper);
   });
-
   it("renders Sunset to the same output as the React version", () => {
     const variant = "sunset";
-
     const vueWrapper = mount(VueAvatar, {
       props: {
         size: size,
@@ -353,7 +341,6 @@ describe("Avatar - square", () => {
         square={isSquare}
       />
     );
-
     isEqual(vueWrapper, reactWrapper);
   });
 });
