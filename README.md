@@ -1,9 +1,9 @@
 # vue-boring-avatars
 
-A Vue 3 port of [Boring Avatars](https://github.com/boringdesigners/boring-avatars). Built using TypeScript.
+![hi](https://badgen.net/npm/v/vue-boring-avatars)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-Based on Boring Avatar's description,
-> Boring Avatars a tiny JavaScript React library that generates custom, SVG-based, round avatars from any username and color palette.
+`vue-boring-avatars` is a Vue 3 port of [Boring Avatars](https://github.com/boringdesigners/boring-avatars), a JS library that generates custom, SVG-based avatars from any username and color palette.
 
 ## Features
 
@@ -70,6 +70,19 @@ export default {
   },
 });
 </script>
+```
+
+
+Basic usage with `<script setup>` (with default props):
+
+```html
+<script setup>
+import Avatar from "vue-boring-avatars";
+</script>
+
+<template>
+  <Avatar />
+</template>
 ```
 
 With props:
