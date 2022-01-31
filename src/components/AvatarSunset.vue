@@ -36,8 +36,8 @@
         :y2="SIZE / 2"
         gradientUnits="userSpaceOnUse"
       >
-        <stop :stop-color="properties[0].color" />
-        <stop :offset="1" :stop-color="properties[1].color" />
+        <stop :stop-color="sunsetColors[0]" />
+        <stop :offset="1" :stop-color="sunsetColors[1]" />
       </linearGradient>
       <linearGradient
         :id="`gradient_paint1_linear_${name}`"
@@ -47,8 +47,8 @@
         :y2="SIZE"
         gradientUnits="userSpaceOnUse"
       >
-        <stop :stop-color="properties[2].color" />
-        <stop :offset="1" :stop-color="properties[3].color" />
+        <stop :stop-color="sunsetColors[2]" />
+        <stop :offset="1" :stop-color="sunsetColors[3]" />
       </linearGradient>
     </defs>
   </svg>
@@ -56,20 +56,20 @@
 
 <script lang="ts">
 import { defineComponent, PropType, computed } from "vue";
-import { getNumber, getRandomColor } from "../utilities";
+import { hashCode, getRandomColor } from "../utilities";
 
 const ELEMENTS = 4;
 const SIZE = 80;
 
 function generateColors(name: string, colors: string[]) {
-  const numFromName = getNumber(name);
+  const numFromName = hashCode(name);
   const range = colors && colors.length;
 
-  const elementsProperties = Array.from({ length: ELEMENTS }, (_, i) => ({
-    color: getRandomColor(numFromName + i, colors, range),
-  }));
+  const colorsList = Array.from({ length: ELEMENTS }, (_, i) =>
+    getRandomColor(numFromName + i, colors, range)
+  );
 
-  return elementsProperties;
+  return colorsList;
 }
 
 export default defineComponent({
@@ -93,10 +93,12 @@ export default defineComponent({
     },
   },
   setup(props) {
-    const properties = computed(() => generateColors(props.name, props.colors));
+    const sunsetColors = computed(() =>
+      generateColors(props.name, props.colors)
+    );
     const name = computed(() => props.name.replace(/\s/g, ""));
 
-    return { properties, name, SIZE };
+    return { sunsetColors, name, SIZE };
   },
 });
 </script>
