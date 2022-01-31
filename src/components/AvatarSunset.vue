@@ -7,7 +7,7 @@
     :width="size"
     :height="size"
   >
-    <title>{{ name }}</title>
+    <title>{{ propsName }}</title>
     <mask
       id="mask__sunset"
       maskUnits="userSpaceOnUse"
@@ -20,7 +20,7 @@
         :width="SIZE"
         :height="SIZE"
         :rx="!square ? SIZE * 2 : undefined"
-        fill="white"
+        fill="#FFFFFF"
       />
     </mask>
     <g mask="url(#mask__sunset)">
@@ -97,8 +97,9 @@ export default defineComponent({
       generateColors(props.name, props.colors)
     );
     const name = computed(() => props.name.replace(/\s/g, ""));
+    const propsName = props.name;
 
-    return { sunsetColors, name, SIZE };
+    return { sunsetColors, propsName, name, SIZE };
   },
 });
 </script>

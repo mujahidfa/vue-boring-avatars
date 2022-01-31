@@ -20,7 +20,7 @@
         :width="SIZE"
         :height="SIZE"
         :rx="square ? undefined : SIZE * 2"
-        fill="white"
+        fill="#FFFFFF"
       />
     </mask>
     <g mask="url(#mask__marble)">

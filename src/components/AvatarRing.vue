@@ -20,7 +20,7 @@
         :width="SIZE"
         :height="SIZE"
         :rx="!square ? SIZE * 2 : undefined"
-        fill="white"
+        fill="#FFFFFF"
       />
     </mask>
     <g mask="url(#mask__ring)">
