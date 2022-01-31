@@ -37,27 +37,29 @@
   "scripts": {
     "dev": "vite",
     "test": "vite --config vite.config.test.ts",
-    "build": "vue-tsc --noEmit && vite build && vue-dts-gen src/components/*.vue && mv src/components/Avatar.d.ts dist/vue-boring-avatars.d.ts && rm -r src/components/Avatar*.d.ts",
+    "build": "vue-tsc --noEmit && vite build && vue-dts-gen src/components/*.vue && move-cli src/components/Avatar.d.ts dist/vue-boring-avatars.d.ts && rimraf -r src/components/Avatar*.d.ts",
     "serve": "vite preview"
   },
-  "dependencies": {
-    "vue": ">=3.0.0"
+  "peerDependencies": {
+    "vue": "^3.0.0"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^1.2.4",
-    "@vue/compiler-sfc": "^3.1.4",
+    "@vitejs/plugin-vue": "^2.1.0",
     "@vue/test-utils": "^2.0.0-rc.10",
-    "boring-avatars": "^1.5.8",
+    "boring-avatars": "1.5.8",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.6",
-    "html-crush": "^4.2.0",
-    "puppeteer": "^10.1.0",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "typescript": "^4.3.5",
-    "vite": "^2.4.1",
+    "html-crush": "^5.0.12",
+    "move-cli": "^2.0.0",
+    "puppeteer": "^13.1.2",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
+    "rimraf": "^3.0.2",
+    "typescript": "^4.5.5",
+    "vite": "^2.7.13",
     "vite-plugin-test": "^0.0.5",
-    "vue-dts-gen": "^0.2.3",
-    "vue-tsc": "0.0.26"
+    "vue": "^3.2.29",
+    "vue-dts-gen": "^0.3.0",
+    "vue-tsc": "^0.31.1"
   }
 }
