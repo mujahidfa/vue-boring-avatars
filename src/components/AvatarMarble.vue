@@ -2,10 +2,12 @@
   <svg
     :viewBox="`0 0 ${SIZE} ${SIZE}`"
     fill="none"
+    role="img"
     xmlns="http://www.w3.org/2000/svg"
     :width="size"
     :height="size"
   >
+    <title>{{ name }}</title>
     <mask
       id="mask__marble"
       maskUnits="userSpaceOnUse"
@@ -65,6 +67,21 @@ import { getNumber, getUnit, getRandomColor } from "../utilities";
 
 const ELEMENTS = 3;
 const SIZE = 80;
+
+function generateColors(name: string, colors: string[]) {
+  const numFromName = getNumber(name);
+  const range = colors && colors.length;
+
+  const elementsProperties = Array.from({ length: ELEMENTS }, (_, i) => ({
+    color: getRandomColor(numFromName + i, colors, range),
+    translateX: getUnit(numFromName * (i + 1), SIZE / 10, 1),
+    translateY: getUnit(numFromName * (i + 1), SIZE / 10, 2),
+    scale: 1.2 + getUnit(numFromName * (i + 1), SIZE / 20) / 10,
+    rotate: getUnit(numFromName * (i + 1), 360, 1),
+  }));
+
+  return elementsProperties;
+}
 
 export default defineComponent({
   props: {
