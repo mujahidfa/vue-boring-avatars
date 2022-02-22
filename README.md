@@ -2,6 +2,7 @@
 
 ![hi](https://badgen.net/npm/v/vue-boring-avatars)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![MadeWithVueJs.com shield](https://madewithvuejs.com/storage/repo-shields/3206-shield.svg)](https://madewithvuejs.com/p/vue-boring-avatars/shield-link)
 
 `vue-boring-avatars` is a Vue 3 port of [Boring Avatars](https://github.com/boringdesigners/boring-avatars), a JS library that generates custom, SVG-based avatars from any username and color palette.
 
