@@ -58,7 +58,8 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType, computed } from "vue";
+import { defineComponent, computed } from "vue";
+import type { PropType } from "vue";
 import { hashCode, getUnit, getRandomColor, getBoolean } from "../utilities";
 
 const ELEMENTS = 4;

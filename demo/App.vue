@@ -1,3 +1,12 @@
+<script setup lang="ts">
+import { ref } from "vue";
+import Avatar from "../src";
+
+const name = ref("Clara Barton");
+const size = ref(80);
+const square = ref(true);
+</script>
+
 <template>
   <div style="margin-bottom: 20px">
     <input type="text" v-model="name" />
@@ -13,26 +22,3 @@
   <Avatar :size="size" variant="ring" :name="name" :square="square" />
   <Avatar :size="size" variant="sunset" :name="name" :square="square" />
 </template>
-
-<script lang="ts">
-import { defineComponent, ref } from "vue";
-import Avatar from "./components/Avatar.vue";
-
-export default defineComponent({
-  name: "App",
-  setup() {
-    const name = ref("Clara Barton");
-    const size = ref(80);
-    const square = ref(true);
-
-    return {
-      name,
-      size,
-      square,
-    };
-  },
-  components: {
-    Avatar,
-  },
-});
-</script>

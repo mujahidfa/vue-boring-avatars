@@ -1,7 +1,7 @@
 export const hashCode = (name: string) => {
   let hash = 0;
   for (let i = 0; i < name.length; i++) {
-    let character = name.charCodeAt(i);
+    const character = name.charCodeAt(i);
     hash = (hash << 5) - hash + character;
     hash = hash & hash; // Convert to 32bit integer
   }
@@ -29,7 +29,7 @@ export const getUnit = (
   range: number,
   index?: number
 ): number => {
-  let value = number % range;
+  const value = number % range;
 
   if (index && getDigit(number, index) % 2 === 0) {
     return -value;
@@ -51,12 +51,12 @@ export const getContrast = (hexcolor: string) => {
   }
 
   // Convert to RGB value
-  var r = parseInt(hexcolor.substring(0, 2), 16);
-  var g = parseInt(hexcolor.substring(2, 4), 16);
-  var b = parseInt(hexcolor.substring(4, 6), 16);
+  const r = parseInt(hexcolor.substring(0, 2), 16);
+  const g = parseInt(hexcolor.substring(2, 4), 16);
+  const b = parseInt(hexcolor.substring(4, 6), 16);
 
   // Get YIQ ratio
-  var yiq = (r * 299 + g * 587 + b * 114) / 1000;
+  const yiq = (r * 299 + g * 587 + b * 114) / 1000;
 
   // Check contrast
   return yiq >= 128 ? "#000000" : "#FFFFFF";

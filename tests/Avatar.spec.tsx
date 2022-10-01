@@ -1,12 +1,13 @@
-import { mount } from "@vue/test-utils";
+import { describe, it, expect } from "vitest";
+
+import { mount, VueWrapper } from "@vue/test-utils";
 
 import React from "react";
-import { shallow, configure } from "enzyme";
-import Adapter from "enzyme-adapter-react-16";
-configure({ adapter: new Adapter() });
+import type { ReactElement } from "react";
+import * as ReactDOMServer from "react-dom/server";
 
-import VueAvatar from "../src/components/Avatar.vue";
-import ReactAvatar from "boring-avatars";
+import VueAvatar from "../src";
+import ReactAvatar from "../react-boring-avatars";
 
 import { crush } from "html-crush";
 
@@ -14,17 +15,17 @@ import { crush } from "html-crush";
  * Get randomized integer
  * @returns {number} randomized integer
  */
-function getRandomInt() {
+function getRandomInt(): number {
   const min = 1;
   const max = 300;
   return Math.random() * (max - min) + min;
 }
 
-/**
+/**∏
  * @param {string} html representing a HTML element
  * @return {string} minified version of the HTML
  */
-function minify(html) {
+function minify(html: string): string {
   return crush(
     html
       .replaceAll(/class="[^"]*"/g, "")
@@ -38,40 +39,31 @@ function minify(html) {
 
 /**
  * @param {string} html representing a HTML element
- * @return {Element}
  */
-function htmlToElement(html) {
-  var template = document.createElement("template");
+function htmlToElement(html: string): Node | null {
+  const template = document.createElement("template");
   html = html.trim(); // Never return a text node of whitespace as the result
   template.innerHTML = html;
   return template.content.firstChild;
 }
 
 /**
- * Check if Vue and React components are equivalent
- *
- * @param {Element} vueWrapper
- * @param {Element} reactWrapper
+ * Check if Vue and React components are equivalent.
  */
-function isEqual(vueWrapper, reactWrapper) {
+function isEqual(vueWrapper: VueWrapper, reactWrapper: ReactElement) {
   let vueHtml = minify(vueWrapper.html());
-  let reactHtml = minify(reactWrapper.html());
+  let reactHtml = minify(ReactDOMServer.renderToStaticMarkup(reactWrapper));
 
   // Run the minification 2 times to make sure the minified output is the same.
   // Cos sometimes running the minifier once results in 2 different output despite the same input.
   vueHtml = minify(vueHtml);
   reactHtml = minify(reactHtml);
 
-  // console.log("------ VUE --------");
-  // console.log(vueHtml);
-  // console.log("------ REACT --------");
-  // console.log(reactHtml);
-
+  // Convert HTML string to Element Node so that we can compare equality
   const vueElement = htmlToElement(vueHtml);
   const reactElement = htmlToElement(reactHtml);
 
-  expect(vueElement.isEqualNode(reactElement)).to.equal(true);
-  // expect(vueHtml).to.equal(reactHtml);
+  expect(vueElement?.isEqualNode(reactElement)).to.equal(true);
 }
 
 /**
@@ -85,7 +77,7 @@ const colors = ["#92A1C6", "#146A7C", "#F0AB3D", "#C271B4", "#C20D90"];
 describe("Avatar - circle (default)", () => {
   it("renders to the same output as the React version: default props", () => {
     const vueWrapper = mount(VueAvatar);
-    const reactWrapper = shallow(<ReactAvatar />);
+    const reactWrapper = (<ReactAvatar />) as ReactElement;
 
     isEqual(vueWrapper, reactWrapper);
   });
@@ -101,9 +93,9 @@ describe("Avatar - circle (default)", () => {
         colors: colors,
       },
     });
-    const reactWrapper = shallow(
+    const reactWrapper = (
       <ReactAvatar size={size} name={name} variant={variant} colors={colors} />
-    );
+    ) as ReactElement;
 
     isEqual(vueWrapper, reactWrapper);
   });
@@ -119,9 +111,9 @@ describe("Avatar - circle (default)", () => {
         colors: colors,
       },
     });
-    const reactWrapper = shallow(
+    const reactWrapper = (
       <ReactAvatar size={size} name={name} variant={variant} colors={colors} />
-    );
+    ) as ReactElement;
 
     isEqual(vueWrapper, reactWrapper);
   });
@@ -137,9 +129,9 @@ describe("Avatar - circle (default)", () => {
         colors: colors,
       },
     });
-    const reactWrapper = shallow(
+    const reactWrapper = (
       <ReactAvatar size={size} name={name} variant={variant} colors={colors} />
-    );
+    ) as ReactElement;
 
     isEqual(vueWrapper, reactWrapper);
   });
@@ -155,9 +147,9 @@ describe("Avatar - circle (default)", () => {
         colors: colors,
       },
     });
-    const reactWrapper = shallow(
+    const reactWrapper = (
       <ReactAvatar size={size} name={name} variant={variant} colors={colors} />
-    );
+    ) as ReactElement;
 
     isEqual(vueWrapper, reactWrapper);
   });
@@ -173,9 +165,9 @@ describe("Avatar - circle (default)", () => {
         colors: colors,
       },
     });
-    const reactWrapper = shallow(
+    const reactWrapper = (
       <ReactAvatar size={size} name={name} variant={variant} colors={colors} />
-    );
+    ) as ReactElement;
 
     isEqual(vueWrapper, reactWrapper);
   });
@@ -191,9 +183,9 @@ describe("Avatar - circle (default)", () => {
         colors: colors,
       },
     });
-    const reactWrapper = shallow(
+    const reactWrapper = (
       <ReactAvatar size={size} name={name} variant={variant} colors={colors} />
-    );
+    ) as ReactElement;
 
     isEqual(vueWrapper, reactWrapper);
   });
@@ -208,7 +200,7 @@ describe("Avatar - square", () => {
         square: isSquare,
       },
     });
-    const reactWrapper = shallow(<ReactAvatar square={isSquare} />);
+    const reactWrapper = (<ReactAvatar square={isSquare} />) as ReactElement;
     isEqual(vueWrapper, reactWrapper);
   });
   it("renders Bauhaus to the same output as the React version", () => {
@@ -222,7 +214,7 @@ describe("Avatar - square", () => {
         square: isSquare,
       },
     });
-    const reactWrapper = shallow(
+    const reactWrapper = (
       <ReactAvatar
         size={size}
         name={name}
@@ -230,7 +222,7 @@ describe("Avatar - square", () => {
         colors={colors}
         square={isSquare}
       />
-    );
+    ) as ReactElement;
     isEqual(vueWrapper, reactWrapper);
   });
   it("renders Beam to the same output as the React version", () => {
@@ -244,7 +236,7 @@ describe("Avatar - square", () => {
         square: isSquare,
       },
     });
-    const reactWrapper = shallow(
+    const reactWrapper = (
       <ReactAvatar
         size={size}
         name={name}
@@ -252,7 +244,7 @@ describe("Avatar - square", () => {
         colors={colors}
         square={isSquare}
       />
-    );
+    ) as ReactElement;
     isEqual(vueWrapper, reactWrapper);
   });
   it("renders Marble to the same output as the React version", () => {
@@ -266,7 +258,7 @@ describe("Avatar - square", () => {
         square: isSquare,
       },
     });
-    const reactWrapper = shallow(
+    const reactWrapper = (
       <ReactAvatar
         size={size}
         name={name}
@@ -274,7 +266,7 @@ describe("Avatar - square", () => {
         colors={colors}
         square={isSquare}
       />
-    );
+    ) as ReactElement;
     isEqual(vueWrapper, reactWrapper);
   });
   it("renders Pixel to the same output as the React version", () => {
@@ -288,7 +280,7 @@ describe("Avatar - square", () => {
         square: isSquare,
       },
     });
-    const reactWrapper = shallow(
+    const reactWrapper = (
       <ReactAvatar
         size={size}
         name={name}
@@ -296,7 +288,7 @@ describe("Avatar - square", () => {
         colors={colors}
         square={isSquare}
       />
-    );
+    ) as ReactElement;
     isEqual(vueWrapper, reactWrapper);
   });
   it("renders Ring to the same output as the React version", () => {
@@ -310,7 +302,7 @@ describe("Avatar - square", () => {
         square: isSquare,
       },
     });
-    const reactWrapper = shallow(
+    const reactWrapper = (
       <ReactAvatar
         size={size}
         name={name}
@@ -318,7 +310,7 @@ describe("Avatar - square", () => {
         colors={colors}
         square={isSquare}
       />
-    );
+    ) as ReactElement;
     isEqual(vueWrapper, reactWrapper);
   });
   it("renders Sunset to the same output as the React version", () => {
@@ -332,7 +324,7 @@ describe("Avatar - square", () => {
         square: isSquare,
       },
     });
-    const reactWrapper = shallow(
+    const reactWrapper = (
       <ReactAvatar
         size={size}
         name={name}
@@ -340,7 +332,7 @@ describe("Avatar - square", () => {
         colors={colors}
         square={isSquare}
       />
-    );
+    ) as ReactElement;
     isEqual(vueWrapper, reactWrapper);
   });
 });

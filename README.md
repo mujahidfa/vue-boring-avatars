@@ -17,23 +17,23 @@
 NPM:
 
 ```bash
-yarn add vue-boring-avatars
-
+pnpm i vue-boring-avatars
 # or
-
+yarn add vue-boring-avatars
+# or
 npm install vue-boring-avatars
 ```
 
 CDN:
 
 ```html
-<!-- UMD version -->
-<script src="https://unpkg.com/vue-boring-avatars/dist/vue-boring-avatars.umd.js"></script>
-
 <!-- ESM version -->
 <script type="module">
-  import Avatar from 'https://unpkg.com/vue-boring-avatars/dist/vue-boring-avatars.es.js'
-</script>                                                                    
+  import Avatar from 'https://unpkg.com/vue-boring-avatars/dist/vue-boring-avatars.js'
+</script>
+
+<!-- UMD version -->
+<script src="https://unpkg.com/vue-boring-avatars/dist/vue-boring-avatars.umd.cjs"></script>                                                                
 ```
 
 ## Props
@@ -57,7 +57,7 @@ Props:
 
 Basic usage (with default props):
 
-```html
+```vue
 <template>
   <Avatar />
 </template>
@@ -69,14 +69,14 @@ export default {
   components: {
     Avatar,
   },
-});
+};
 </script>
 ```
 
 
 Basic usage with `<script setup>` (with default props):
 
-```html
+```vue
 <script setup>
 import Avatar from "vue-boring-avatars";
 </script>
@@ -88,7 +88,7 @@ import Avatar from "vue-boring-avatars";
 
 With props:
 
-```html
+```vue
 <template>
   <Avatar 
     :size="80" 
@@ -110,13 +110,13 @@ export default {
   components: {
     Avatar,
   },
-});
+};
 </script>
 ```
 
 With Composition API:
 
-```html
+```vue
 <template>
   <input type="text" v-model="name" />
   <input type="number" v-model.number="size" />
@@ -149,6 +149,15 @@ export default defineComponent({
   },
 });
 </script>
+```
+
+## Development
+
+```sh
+pnpm i # install packages
+pnpm dev # launch in browser
+pnpm test # run tests (download react-boring-avatars, lint, type check, then run tests)
+pnpm build # build the dist
 ```
 
 ## Credits

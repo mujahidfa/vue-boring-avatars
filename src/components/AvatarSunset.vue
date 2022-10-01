@@ -7,7 +7,7 @@
     :width="size"
     :height="size"
   >
-    <title>{{ propsName }}</title>
+    <title>{{ name }}</title>
     <mask
       id="mask__sunset"
       maskUnits="userSpaceOnUse"
@@ -24,12 +24,18 @@
       />
     </mask>
     <g mask="url(#mask__sunset)">
-      <path :fill="`url(#gradient_paint0_linear_${name})`" d="M0 0h80v40H0z" />
-      <path :fill="`url(#gradient_paint1_linear_${name})`" d="M0 40h80v40H0z" />
+      <path
+        :fill="`url(#gradient_paint0_linear_${formattedName})`"
+        d="M0 0h80v40H0z"
+      />
+      <path
+        :fill="`url(#gradient_paint1_linear_${formattedName})`"
+        d="M0 40h80v40H0z"
+      />
     </g>
     <defs>
       <linearGradient
-        :id="`gradient_paint0_linear_${name}`"
+        :id="`gradient_paint0_linear_${formattedName}`"
         :x1="SIZE / 2"
         :y1="0"
         :x2="SIZE / 2"
@@ -40,7 +46,7 @@
         <stop :offset="1" :stop-color="sunsetColors[1]" />
       </linearGradient>
       <linearGradient
-        :id="`gradient_paint1_linear_${name}`"
+        :id="`gradient_paint1_linear_${formattedName}`"
         :x1="SIZE / 2"
         :y1="SIZE / 2"
         :x2="SIZE / 2"
@@ -55,7 +61,8 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType, computed } from "vue";
+import { defineComponent, computed } from "vue";
+import type { PropType } from "vue";
 import { hashCode, getRandomColor } from "../utilities";
 
 const ELEMENTS = 4;
@@ -96,10 +103,9 @@ export default defineComponent({
     const sunsetColors = computed(() =>
       generateColors(props.name, props.colors)
     );
-    const name = computed(() => props.name.replace(/\s/g, ""));
-    const propsName = props.name;
+    const formattedName = computed(() => props.name.replace(/\s/g, ""));
 
-    return { sunsetColors, propsName, name, SIZE };
+    return { sunsetColors, formattedName, SIZE };
   },
 });
 </script>

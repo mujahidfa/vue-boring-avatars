@@ -9,7 +9,8 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType } from "vue";
+import { defineComponent } from "vue";
+import type { PropType } from "vue";
 import AvatarBauhaus from "./AvatarBauhaus.vue";
 import AvatarBeam from "./AvatarBeam.vue";
 import AvatarMarble from "./AvatarMarble.vue";
@@ -20,6 +21,7 @@ import AvatarSunset from "./AvatarSunset.vue";
 type Variant = "bauhaus" | "beam" | "marble" | "pixel" | "ring" | "sunset";
 
 export default defineComponent({
+  // eslint-disable-next-line vue/multi-word-component-names
   name: "Avatar",
   props: {
     variant: {
@@ -41,7 +43,7 @@ export default defineComponent({
     colors: {
       type: Array as PropType<string[]>,
       required: false,
-      default: ["#92A1C6", "#146A7C", "#F0AB3D", "#C271B4", "#C20D90"],
+      default: () => ["#92A1C6", "#146A7C", "#F0AB3D", "#C271B4", "#C20D90"],
     },
     name: {
       type: String,
