@@ -33,6 +33,7 @@ function minify(html: string): string {
       .replaceAll(/data-v-[a-zA-Z\d]+="[^"]*"/g, ""),
     {
       removeLineBreaks: true,
+      removeHTMLComments: true,
     }
   ).result;
 }
@@ -332,6 +333,185 @@ describe("Avatar - square", () => {
         colors={colors}
         square={isSquare}
       />
+    ) as ReactElement;
+    isEqual(vueWrapper, reactWrapper);
+  });
+});
+
+describe("Avatar - `title` prop", () => {
+  it("renders to the same output as the React version: default props (title is false)", () => {
+    const vueWrapper = mount(VueAvatar);
+    const reactWrapper = (<ReactAvatar />) as ReactElement;
+    isEqual(vueWrapper, reactWrapper);
+  });
+  it("renders to the same output as the React version: title is true", () => {
+    const vueWrapper = mount(VueAvatar, {
+      props: {
+        title: true,
+      },
+    });
+    const reactWrapper = (<ReactAvatar title={true} />) as ReactElement;
+    isEqual(vueWrapper, reactWrapper);
+  });
+  it("renders Bauhaus to the same output as the React version", () => {
+    const variant = "bauhaus";
+
+    // `title` is false
+    let vueWrapper = mount(VueAvatar, {
+      props: {
+        variant: variant,
+        title: false,
+      },
+    });
+    let reactWrapper = (
+      <ReactAvatar variant={variant} title={false} />
+    ) as ReactElement;
+    isEqual(vueWrapper, reactWrapper);
+
+    // `title` is true
+    vueWrapper = mount(VueAvatar, {
+      props: {
+        variant: variant,
+        title: true,
+      },
+    });
+    reactWrapper = (
+      <ReactAvatar variant={variant} title={true} />
+    ) as ReactElement;
+    isEqual(vueWrapper, reactWrapper);
+  });
+  it("renders Beam to the same output as the React version", () => {
+    const variant = "beam";
+
+    // `title` is false
+    let vueWrapper = mount(VueAvatar, {
+      props: {
+        variant: variant,
+        title: false,
+      },
+    });
+    let reactWrapper = (
+      <ReactAvatar variant={variant} title={false} />
+    ) as ReactElement;
+    isEqual(vueWrapper, reactWrapper);
+
+    // `title` is true
+    vueWrapper = mount(VueAvatar, {
+      props: {
+        variant: variant,
+        title: true,
+      },
+    });
+    reactWrapper = (
+      <ReactAvatar variant={variant} title={true} />
+    ) as ReactElement;
+    isEqual(vueWrapper, reactWrapper);
+  });
+  it("renders Marble to the same output as the React version", () => {
+    const variant = "marble";
+
+    // `title` is false
+    let vueWrapper = mount(VueAvatar, {
+      props: {
+        variant: variant,
+        title: false,
+      },
+    });
+    let reactWrapper = (
+      <ReactAvatar variant={variant} title={false} />
+    ) as ReactElement;
+    isEqual(vueWrapper, reactWrapper);
+
+    // `title` is true
+    vueWrapper = mount(VueAvatar, {
+      props: {
+        variant: variant,
+        title: true,
+      },
+    });
+    reactWrapper = (
+      <ReactAvatar variant={variant} title={true} />
+    ) as ReactElement;
+    isEqual(vueWrapper, reactWrapper);
+  });
+  it("renders Pixel to the same output as the React version", () => {
+    const variant = "pixel";
+
+    // `title` is false
+    let vueWrapper = mount(VueAvatar, {
+      props: {
+        variant: variant,
+        title: false,
+      },
+    });
+    let reactWrapper = (
+      <ReactAvatar variant={variant} title={false} />
+    ) as ReactElement;
+    isEqual(vueWrapper, reactWrapper);
+
+    // `title` is true
+    vueWrapper = mount(VueAvatar, {
+      props: {
+        variant: variant,
+        title: true,
+      },
+    });
+    reactWrapper = (
+      <ReactAvatar variant={variant} title={true} />
+    ) as ReactElement;
+    isEqual(vueWrapper, reactWrapper);
+  });
+  it("renders Ring to the same output as the React version", () => {
+    const variant = "ring";
+
+    // `title` is false
+    let vueWrapper = mount(VueAvatar, {
+      props: {
+        variant: variant,
+        title: false,
+      },
+    });
+    let reactWrapper = (
+      <ReactAvatar variant={variant} title={false} />
+    ) as ReactElement;
+    isEqual(vueWrapper, reactWrapper);
+
+    // `title` is true
+    vueWrapper = mount(VueAvatar, {
+      props: {
+        variant: variant,
+        title: true,
+      },
+    });
+    reactWrapper = (
+      <ReactAvatar variant={variant} title={true} />
+    ) as ReactElement;
+    isEqual(vueWrapper, reactWrapper);
+  });
+  it("renders Sunset to the same output as the React version", () => {
+    const variant = "sunset";
+
+    // `title` is false
+    let vueWrapper = mount(VueAvatar, {
+      props: {
+        variant: variant,
+        title: false,
+      },
+    });
+    let reactWrapper = (
+      <ReactAvatar variant={variant} title={false} />
+    ) as ReactElement;
+    isEqual(vueWrapper, reactWrapper);
+
+    // `title` is true
+    vueWrapper = mount(VueAvatar, {
+      props: {
+        variant: variant,
+        title: true,
+      },
+    });
+    reactWrapper = (
+      <ReactAvatar variant={variant} title={true} />
     ) as ReactElement;
     isEqual(vueWrapper, reactWrapper);
   });

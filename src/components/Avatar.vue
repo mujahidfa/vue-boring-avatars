@@ -5,6 +5,7 @@
     :name="name"
     :square="square"
     :size="size"
+    :title="title"
   ></component>
 </template>
 
@@ -59,6 +60,11 @@ export default defineComponent({
       type: Number,
       required: false,
       default: 40,
+    },
+    title: {
+      type: Boolean,
+      required: false,
+      default: false,
     },
   },
   setup() {

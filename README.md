@@ -42,16 +42,24 @@ Props:
 
 - `size`: number
   - Default: `40`
+  - Determines the size of the Avatar.
 - `square`: boolean
   - Default: `false`
+  - Whether the Avatar is shaped as a square or circle (default).
+- `title`: boolean
+  - Default: `false`
+  - Whether to generate the `<title>` element or not.
 - `name`: string
   - Default: `"Clara Barton"`
+  - Name that determines the pattern of the Avatar, and appears in the `<title>` element if `title` is `true`.
 - `variant`: string
   - Accepts either of the following: `"bauhaus", "beam", "marble", "pixel", "ring", "sunset"`.
   - Default: `"marble"`
+  - Determines the variant of the Avatar.
 - `colors`: string[]
   - Accepts a string of colors.
   - Default: `["#92A1C6", "#146A7C", "#F0AB3D", "#C271B4", "#C20D90"]`
+  - Determines the range of colors in the Avatar.
 
 ## Usage
 
@@ -122,11 +130,11 @@ With Composition API:
   <input type="number" v-model.number="size" />
 
   <Avatar :size="size" variant="bauhaus" :name="name" />
-  <Avatar :size="size" variant="beam" :name="name" :square="true" />
+  <Avatar :size="size" variant="beam" :name="name" :square="true" :title="true" />
   <Avatar :size="size" variant="marble" :name="name" />
-  <Avatar :size="size" variant="pixel" :name="name" :square="true" />
+  <Avatar :size="size" variant="pixel" :name="name" :square="true" :title="true"/>
   <Avatar :size="size" variant="ring" :name="name" />
-  <Avatar :size="size" variant="sunset" :name="name" :square="true" />
+  <Avatar :size="size" variant="sunset" :name="name" :square="true" :title="true" />
 </template>
 
 <script lang="ts">

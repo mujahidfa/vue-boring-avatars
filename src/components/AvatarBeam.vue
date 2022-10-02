@@ -7,7 +7,7 @@
     :width="size"
     :height="size"
   >
-    <title>{{ name }}</title>
+    <title v-if="title">{{ name }}</title>
     <mask
       id="mask__beam"
       maskUnits="userSpaceOnUse"
@@ -147,6 +147,11 @@ export default defineComponent({
     size: {
       type: Number,
       required: true,
+    },
+    title: {
+      type: Boolean,
+      required: false,
+      default: false,
     },
   },
   setup(props) {
