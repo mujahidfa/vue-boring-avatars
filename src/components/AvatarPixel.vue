@@ -106,7 +106,7 @@ function generateColors(name: string, colors: string[]) {
   const range = colors && colors.length;
 
   const colorList = Array.from({ length: ELEMENTS }, (_, i) =>
-    getRandomColor(numFromName % i, colors, range)
+    getRandomColor(numFromName % (i + i), colors, range)
   );
 
   return colorList;
