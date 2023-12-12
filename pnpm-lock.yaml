@@ -45,8 +45,8 @@ devDependencies:
     specifier: ^1.3.6
     version: 1.3.6
   html-crush:
-    specifier: ^5.1.11
-    version: 5.1.11
+    specifier: ^6.0.15
+    version: 6.0.15
   jsdom:
     specifier: ^20.0.0
     version: 20.0.0
@@ -978,12 +978,12 @@ packages:
     engines: { node: ">=8" }
     dev: true
 
-  /arrayiffy-if-string@4.1.1:
+  /arrayiffy-if-string@5.0.6:
     resolution:
       {
-        integrity: sha512-pwZXwzKeLg9N8fuMXg37fRqzlW+mOxOh/2aGf9VrF1v2sEt9p5PEhzPdlIz5aiBwQKJAjTaSBni5voHPypeAew==,
+        integrity: sha512-wSk4wZITGFEtA8HqiBelPUe0Fw2InT6tvWt7LBqjy/+paRJfK5iT3YCZ6RzFG1VrAJU++vOTSMSeGdFd8dp5QA==,
       }
-    engines: { node: ^12.20.0 || ^14.13.1 || >=16.0.0 }
+    engines: { node: ">=14.18.0" }
     dev: true
 
   /arrify@1.0.1:
@@ -1167,6 +1167,16 @@ packages:
       {
         integrity: sha512-BrgHpW9NURQgzoNyjfq0Wu6VFO6D7IZEmJNdtgNqpzGG8RuNFHt2jQxWlAs4HMe119chBnv+34syEZtc6IhLtA==,
       }
+    dev: true
+
+  /codsen-utils@1.6.2:
+    resolution:
+      {
+        integrity: sha512-L+Cn6c/q0m3nHT6inNIKO1E+BHzeJ1b6McBQLcHvq46gYt7RSPEjYqmq0P5LWZsz+hb+w0tS5WkH6hRvZeHz2A==,
+      }
+    engines: { node: ">=14.18.0" }
+    dependencies:
+      rfdc: 1.3.0
     dev: true
 
   /color-convert@1.9.3:
@@ -2430,19 +2440,20 @@ packages:
       }
     dev: true
 
-  /html-crush@5.1.11:
+  /html-crush@6.0.15:
     resolution:
       {
-        integrity: sha512-V70ZIYZwscjxSLXDOzToRaM/v6jAYxyTFM2V/kp7OMujQa0zcyGEwleO8A4hnamRH1EPHAxFtxjUd2dDiBeqEQ==,
+        integrity: sha512-FrWDadrFZSO2GeLORDQhof+imy/GkZjd4brPgCNATgsbq3MKP6so8xnkR0aZIsXWUNy/CaMeyNfRyl3FaSPIzQ==,
       }
-    engines: { node: ^12.20.0 || ^14.13.1 || >=16.0.0 }
+    engines: { node: ">=14.18.0" }
     dependencies:
-      ranges-apply: 6.2.2
-      ranges-push: 6.2.2
-      string-left-right: 5.1.2
-      string-match-left-right: 8.2.2
-      string-range-expander: 3.1.1
-      test-mixer: 3.1.1
+      codsen-utils: 1.6.2
+      ranges-apply: 7.0.12
+      ranges-push: 7.0.12
+      string-left-right: 6.0.15
+      string-match-left-right: 9.0.15
+      string-range-expander: 4.0.12
+      test-mixer: 4.1.12
     dev: true
 
   /html-encoding-sniffer@3.0.0:
@@ -2999,38 +3010,10 @@ packages:
       p-locate: 5.0.0
     dev: true
 
-  /lodash.clonedeep@4.5.0:
-    resolution:
-      {
-        integrity: sha512-H5ZhCF25riFd9uB5UCkVKo61m3S/xZk1x4wA6yp/L3RFP6Z/eHH1ymQcGLo7J3GMPfm0V/7m1tryHuGVxpqEBQ==,
-      }
-    dev: true
-
-  /lodash.intersection@4.4.0:
-    resolution:
-      {
-        integrity: sha512-N+L0cCfnqMv6mxXtSPeKt+IavbOBBSiAEkKyLasZ8BVcP9YXQgxLO12oPR8OyURwKV8l5vJKiE1M8aS70heuMg==,
-      }
-    dev: true
-
-  /lodash.isplainobject@4.0.6:
-    resolution:
-      {
-        integrity: sha512-oSXzaWypCMHkPC3NvBEaPHf0KsA5mvPrOPgQWDsbg8n7orZ290M0BmC/jgRZ4vcJ6DTAhjrsSYgdsW/F+MFOBA==,
-      }
-    dev: true
-
   /lodash.merge@4.6.2:
     resolution:
       {
         integrity: sha512-0KpjqXRVvrYyCsX1swR/XTK0va6VQkQM6MNo7PqW77ByjAhoARA8EfrP1N4+KlKj8YS0ZUCtRT/YUuhyYDujIQ==,
-      }
-    dev: true
-
-  /lodash.pull@4.1.0:
-    resolution:
-      {
-        integrity: sha512-EM7CVTzXfkTyusQdN7mgGPh2ZfkKfQ5lA9U+X7NNDeEgKEaO65dB5Kh8+Ppap0X1wQOndPjKP/VVTis7hFvkzg==,
       }
     dev: true
 
@@ -3381,17 +3364,15 @@ packages:
     engines: { node: ">=0.10.0" }
     dev: true
 
-  /object-boolean-combinations@5.1.1:
+  /object-boolean-combinations@6.1.3:
     resolution:
       {
-        integrity: sha512-a93yQ8MNm/IhdgdKMLy1/Y40GgFmCGpnhma9iQSoojhgrmeP6b2LrZ77+a7ISeCE4cuVEUyrY54v+ybhM0OZdw==,
+        integrity: sha512-pYcAzAxunTDlnGeu26IRNB3e9V8wKUO88cAgRN+QLi18jlELeHpojX8pYMghl4o5sOxNzCOM4PZKUI5XEPz5qw==,
       }
-    engines: { node: ^12.20.0 || ^14.13.1 || >=16.0.0 }
+    engines: { node: ">=14.18.0" }
     dependencies:
-      lodash.clonedeep: 4.5.0
-      lodash.intersection: 4.4.0
-      lodash.isplainobject: 4.0.6
-      lodash.pull: 4.1.0
+      codsen-utils: 1.6.2
+      rfdc: 1.3.0
     dev: true
 
   /object-inspect@1.12.2:
@@ -3795,45 +3776,47 @@ packages:
     engines: { node: ">=8" }
     dev: true
 
-  /ranges-apply@6.2.2:
+  /ranges-apply@7.0.12:
     resolution:
       {
-        integrity: sha512-ISCJw52YLx9m3EjhqlXwVc4pgwSUuMwWkzuYw8WqSExgYHu3ZA/oO6qh3RpPo2E91LiFdmQNF1fEuQUhDISfeQ==,
+        integrity: sha512-RsdQnaC0pU+KV69muxE47NMhLCz9XHj3aAL/ykBtUXhtFWaq2/KXWM0wVXCYkBD/lIQRU1ZJhBla4LZPH2ywRQ==,
       }
-    engines: { node: ^12.20.0 || ^14.13.1 || >=16.0.0 }
+    engines: { node: ">=14.18.0" }
     dependencies:
-      ranges-merge: 8.2.2
+      ranges-merge: 9.0.12
       tiny-invariant: 1.3.1
     dev: true
 
-  /ranges-merge@8.2.2:
+  /ranges-merge@9.0.12:
     resolution:
       {
-        integrity: sha512-r/+zro+tukevOznmjflo68efwk931rY0FQFVzZjgI5DRA7pT0H+/qM6a0lx++TY/eHICfhlQ/56oGBSbx/8pRA==,
+        integrity: sha512-Asg92aN9sZebnKu79bAlmU+kcHL9hcQZJ4q1WLX2h65ydKfAVtHZp3KhOT4eBCb+G7cSCHUSSK0hqzd/p02ydA==,
       }
-    engines: { node: ^12.20.0 || ^14.13.1 || >=16.0.0 }
+    engines: { node: ">=14.18.0" }
     dependencies:
-      ranges-push: 6.2.2
-      ranges-sort: 5.1.1
+      ranges-push: 7.0.12
+      ranges-sort: 6.0.10
     dev: true
 
-  /ranges-push@6.2.2:
+  /ranges-push@7.0.12:
     resolution:
       {
-        integrity: sha512-cFDwZgQMW3SI7bDzl0cpGy9T997/d3VIyxDYZUVlYfY0z7GWqd3Lg4DAiFRnkOHDbAT94jlZVfyJ0HX+sKWnGw==,
+        integrity: sha512-Jwr/rCIAitwuT+dodq9ISZa09WWWua/mRud4OXPiwA+D7GxObsGgsSkf/v62h6zDxGPJkCuEpryKoOg90sbU6A==,
       }
-    engines: { node: ^12.20.0 || ^14.13.1 || >=16.0.0 }
+    engines: { node: ">=14.18.0" }
     dependencies:
-      string-collapse-leading-whitespace: 6.1.2
-      string-trim-spaces-only: 4.1.1
+      codsen-utils: 1.6.2
+      ranges-sort: 6.0.10
+      string-collapse-leading-whitespace: 7.0.6
+      string-trim-spaces-only: 5.0.9
     dev: true
 
-  /ranges-sort@5.1.1:
+  /ranges-sort@6.0.10:
     resolution:
       {
-        integrity: sha512-xFK3wqdolNvZAwotY1m3CzvaWfYpA7ddOXnhuo2pYTNLXDIgW5oF9mnntCvgcmhGsISN6T7XiCJIR/UZVasZ+Q==,
+        integrity: sha512-Tts5PiQQW+M8jMIkE/y0VdF5+GYFlv85qYAfQUBtekORbNn+7IVD+wPLJZ3LmfJSFJz/Jm3Wlgz+OpAeeHr5PA==,
       }
-    engines: { node: ^12.20.0 || ^14.13.1 || >=16.0.0 }
+    engines: { node: ">=14.18.0" }
     dev: true
 
   /react-dom@18.2.0(react@18.2.0):
@@ -3959,6 +3942,13 @@ packages:
         integrity: sha512-U9nH88a3fc/ekCF1l0/UP1IosiuIjyTh7hBvXVMHYgVcfGvt897Xguj2UOLDeI5BG2m7/uwyaLVT6fbtCwTyzw==,
       }
     engines: { iojs: ">=1.0.0", node: ">=0.10.0" }
+    dev: true
+
+  /rfdc@1.3.0:
+    resolution:
+      {
+        integrity: sha512-V2hovdzFbOi77/WajaSMXk2OLm+xNIeQdMMuB7icj7bk6zi2F8GGAxigcnDFpJHbNyNcgyJDiP+8nOrY5cZGrA==,
+      }
     dev: true
 
   /rimraf@2.4.5:
@@ -4204,59 +4194,61 @@ packages:
       }
     dev: true
 
-  /string-character-is-astral-surrogate@2.1.1:
+  /string-character-is-astral-surrogate@3.0.8:
     resolution:
       {
-        integrity: sha512-Tdr+UNCQLPH+wUufCIv9uMpg0iiRhOhUu9Rm0rLY2kmzJ0usDcU31ROMzVqNV5MYx8NpnQ6ag0wEnsOdOSOSDA==,
+        integrity: sha512-3fqLz0T060i3TlmvSm3FiK0TQ+95Wx+ckzCgCY0YH+U+Bg+9Uo50GME2VuSu3vkL9wIzT1qasbc0dSQekUrMHw==,
       }
-    engines: { node: ^12.20.0 || ^14.13.1 || >=16.0.0 }
+    engines: { node: ">=14.18.0" }
     dev: true
 
-  /string-collapse-leading-whitespace@6.1.2:
+  /string-collapse-leading-whitespace@7.0.6:
     resolution:
       {
-        integrity: sha512-U8QOn9GXAVoERri4K7vqt7D8W6Lijmtsnn+clXLlxJWlA38MVDUjT4dbtR0Qw7FwfmJ6ixpRFC68nMUvstf7gA==,
+        integrity: sha512-FqOnt9H0+eeXukBb3Js2qPLLI0T5ebp96TfU0+AwoAuQQidETeoRMYJG6mUYebP4SBYZkap+HbAK6U/wGWxJvA==,
       }
-    engines: { node: ^12.20.0 || ^14.13.1 || >=16.0.0 }
+    engines: { node: ">=14.18.0" }
     dev: true
 
-  /string-left-right@5.1.2:
+  /string-left-right@6.0.15:
     resolution:
       {
-        integrity: sha512-KbrADvIlY+K2VWW8tnTnD2DQyFlFdnPne4rGdgPo0R19T+ulGah4vHCLuM1vcXoaw2moWXSrpkjM7SlSe6j9gw==,
+        integrity: sha512-f80yIZCFZJnZcnCp8/Mk9zYRs210LHCkpNy668wusUzuh6qhryLA/SfxbFayxnFN12xdPARAvObu/wzYKX57wA==,
       }
-    engines: { node: ^12.20.0 || ^14.13.1 || >=16.0.0 }
+    engines: { node: ">=14.18.0" }
     dependencies:
-      lodash.clonedeep: 4.5.0
-      lodash.isplainobject: 4.0.6
+      codsen-utils: 1.6.2
+      rfdc: 1.3.0
     dev: true
 
-  /string-match-left-right@8.2.2:
+  /string-match-left-right@9.0.15:
     resolution:
       {
-        integrity: sha512-Jf8JATiVnaheGB2o4SNk7ElQoW/J7wAYODMRTzzAqJK61ewVtGvJnVQIF2IWgeNHZeFrDprSR5bvbUYwe2BwIw==,
+        integrity: sha512-U/0/JRYSzTTH0JQU9MkvXCYbTYjho24BcQ7misLShoeiq6HOLZ2e6vhcKcy+CxBs6xbFMqYKz1dxkZS/I1HHnQ==,
       }
-    engines: { node: ^12.20.0 || ^14.13.1 || >=16.0.0 }
+    engines: { node: ">=14.18.0" }
     dependencies:
-      arrayiffy-if-string: 4.1.1
-      lodash.isplainobject: 4.0.6
-      string-character-is-astral-surrogate: 2.1.1
+      arrayiffy-if-string: 5.0.6
+      codsen-utils: 1.6.2
+      string-character-is-astral-surrogate: 3.0.8
     dev: true
 
-  /string-range-expander@3.1.1:
+  /string-range-expander@4.0.12:
     resolution:
       {
-        integrity: sha512-z31MJZ+VRuPd1GbydJM/MPYaYDoV1lHfxH1Dj04oPgPgeOlE7t2SyolZQ9M+ZLbGp/R2bj5OmoLur2d47Y8NVg==,
+        integrity: sha512-WX34tgPW08OOiKF5xBbmjEkx6OrJ/P5Kx5wWH7Och/VNWHL7jqwjGiF/TDi6wBfilUHsNtCCZ+c0hc+Mec0SCA==,
       }
-    engines: { node: ^12.20.0 || ^14.13.1 || >=16.0.0 }
+    engines: { node: ">=14.18.0" }
+    dependencies:
+      codsen-utils: 1.6.2
     dev: true
 
-  /string-trim-spaces-only@4.1.1:
+  /string-trim-spaces-only@5.0.9:
     resolution:
       {
-        integrity: sha512-cAuDSKWkObM+nNteIFQeRaQA7Jk0I79itI8l0+D6AuQ/uVl3uVZCLW+3kXYBNG0DBMJlmk3JUDfUcwEANsPnMA==,
+        integrity: sha512-Yl/Ot+1YksCi2PI+I4nw6Mq2U2QV7vsCWFT+1lfWoFGYVS/27JmtWvueYiQW0YTPX4xz4DhV2cQijDakIPTWGg==,
       }
-    engines: { node: ^12.20.0 || ^14.13.1 || >=16.0.0 }
+    engines: { node: ">=14.18.0" }
     dev: true
 
   /string.prototype.padend@3.1.3:
@@ -4400,15 +4392,15 @@ packages:
       tslib: 2.6.2
     dev: true
 
-  /test-mixer@3.1.1:
+  /test-mixer@4.1.12:
     resolution:
       {
-        integrity: sha512-NodJhstp00M9HmWFCR6ScJ4smgUMvNJOhHSb67xgFMefEwNJCZTWHl8m5YRWp19CtNxuvPZq4QKG5q1jzUwuHA==,
+        integrity: sha512-+7w6HYkujjRUpJxcQaYVoTVEo2VEs3llb8X7CMDWjc7MMW620t+cp1rYMk1Id/DGGKNvj9Jgox/AhSqiud6r5A==,
       }
-    engines: { node: ^12.20.0 || ^14.13.1 || >=16.0.0 }
+    engines: { node: ">=14.18.0" }
     dependencies:
-      lodash.clonedeep: 4.5.0
-      object-boolean-combinations: 5.1.1
+      object-boolean-combinations: 6.1.3
+      rfdc: 1.3.0
     dev: true
 
   /text-table@0.2.0:
