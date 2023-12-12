@@ -9,7 +9,7 @@
   >
     <title v-if="title">{{ name }}</title>
     <mask
-      id="mask__sunset"
+      :id="id"
       maskUnits="userSpaceOnUse"
       :x="0"
       :y="0"
@@ -23,7 +23,7 @@
         fill="#FFFFFF"
       />
     </mask>
-    <g mask="url(#mask__sunset)">
+    <g :mask="`url(#${id})`">
       <path
         :fill="`url(#gradient_paint0_linear_${formattedName})`"
         d="M0 0h80v40H0z"
@@ -81,6 +81,11 @@ function generateColors(name: string, colors: string[]) {
 
 export default defineComponent({
   props: {
+    id: {
+      type: String,
+      required: false,
+      default: "mask__sunset",
+    },
     colors: {
       type: Array as PropType<string[]>,
       required: true,

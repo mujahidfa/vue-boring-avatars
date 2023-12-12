@@ -9,7 +9,7 @@
   >
     <title v-if="title">{{ name }}</title>
     <mask
-      id="mask__beam"
+      :id="id"
       maskUnits="userSpaceOnUse"
       :x="0"
       :y="0"
@@ -23,7 +23,7 @@
         fill="#FFFFFF"
       />
     </mask>
-    <g mask="url(#mask__beam)">
+    <g :mask="`url(#${id})`">
       <rect :width="SIZE" :height="SIZE" :fill="data.backgroundColor" />
       <rect
         :x="0"
@@ -131,6 +131,11 @@ function generateData(name: string, colors: string[]) {
 
 export default defineComponent({
   props: {
+    id: {
+      type: String,
+      required: false,
+      default: "mask__beam",
+    },
     colors: {
       type: Array as PropType<string[]>,
       required: true,

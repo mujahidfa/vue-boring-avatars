@@ -1,5 +1,6 @@
 <template>
   <component
+    :id="id"
     :is="`avatar-${variant}`"
     :colors="colors"
     :name="name"
@@ -25,6 +26,10 @@ export default defineComponent({
   // eslint-disable-next-line vue/multi-word-component-names
   name: "Avatar",
   props: {
+    id: {
+      type: String,
+      required: false,
+    },
     variant: {
       type: String as PropType<Variant>,
       required: false,

@@ -73,11 +73,16 @@ function isEqual(vueWrapper: VueWrapper, reactWrapper: ReactElement) {
 const size = getRandomInt();
 const name = "Maria Mitchell";
 const colors = ["#92A1C6", "#146A7C", "#F0AB3D", "#C271B4", "#C20D90"];
+const defaultId = ":R0:";
 
 // Ensures that the Vue version is the same as the React version
 describe("Avatar - circle (default)", () => {
   it("renders to the same output as the React version: default props", () => {
-    const vueWrapper = mount(VueAvatar);
+    const vueWrapper = mount(VueAvatar, {
+      props: {
+        id: defaultId,
+      },
+    });
     const reactWrapper = (<ReactAvatar />) as ReactElement;
 
     isEqual(vueWrapper, reactWrapper);
@@ -88,6 +93,7 @@ describe("Avatar - circle (default)", () => {
 
     const vueWrapper = mount(VueAvatar, {
       props: {
+        id: defaultId,
         size: size,
         name: name,
         variant: variant,
@@ -106,6 +112,7 @@ describe("Avatar - circle (default)", () => {
 
     const vueWrapper = mount(VueAvatar, {
       props: {
+        id: defaultId,
         size: size,
         name: name,
         variant: variant,
@@ -124,6 +131,7 @@ describe("Avatar - circle (default)", () => {
 
     const vueWrapper = mount(VueAvatar, {
       props: {
+        id: defaultId,
         size: size,
         name: name,
         variant: variant,
@@ -142,6 +150,7 @@ describe("Avatar - circle (default)", () => {
 
     const vueWrapper = mount(VueAvatar, {
       props: {
+        id: defaultId,
         size: size,
         name: name,
         variant: variant,
@@ -160,6 +169,7 @@ describe("Avatar - circle (default)", () => {
 
     const vueWrapper = mount(VueAvatar, {
       props: {
+        id: defaultId,
         size: size,
         name: name,
         variant: variant,
@@ -178,6 +188,7 @@ describe("Avatar - circle (default)", () => {
 
     const vueWrapper = mount(VueAvatar, {
       props: {
+        id: defaultId,
         size: size,
         name: name,
         variant: variant,
@@ -198,6 +209,7 @@ describe("Avatar - square", () => {
   it("renders to the same output as the React version: default props", () => {
     const vueWrapper = mount(VueAvatar, {
       props: {
+        id: defaultId,
         square: isSquare,
       },
     });
@@ -208,6 +220,7 @@ describe("Avatar - square", () => {
     const variant = "bauhaus";
     const vueWrapper = mount(VueAvatar, {
       props: {
+        id: defaultId,
         size: size,
         name: name,
         variant: variant,
@@ -230,6 +243,7 @@ describe("Avatar - square", () => {
     const variant = "beam";
     const vueWrapper = mount(VueAvatar, {
       props: {
+        id: defaultId,
         size: size,
         name: name,
         variant: variant,
@@ -252,6 +266,7 @@ describe("Avatar - square", () => {
     const variant = "marble";
     const vueWrapper = mount(VueAvatar, {
       props: {
+        id: defaultId,
         size: size,
         name: name,
         variant: variant,
@@ -274,6 +289,7 @@ describe("Avatar - square", () => {
     const variant = "pixel";
     const vueWrapper = mount(VueAvatar, {
       props: {
+        id: defaultId,
         size: size,
         name: name,
         variant: variant,
@@ -296,6 +312,7 @@ describe("Avatar - square", () => {
     const variant = "ring";
     const vueWrapper = mount(VueAvatar, {
       props: {
+        id: defaultId,
         size: size,
         name: name,
         variant: variant,
@@ -318,6 +335,7 @@ describe("Avatar - square", () => {
     const variant = "sunset";
     const vueWrapper = mount(VueAvatar, {
       props: {
+        id: defaultId,
         size: size,
         name: name,
         variant: variant,
@@ -340,13 +358,18 @@ describe("Avatar - square", () => {
 
 describe("Avatar - `title` prop", () => {
   it("renders to the same output as the React version: default props (title is false)", () => {
-    const vueWrapper = mount(VueAvatar);
+    const vueWrapper = mount(VueAvatar, {
+      props: {
+        id: defaultId,
+      },
+    });
     const reactWrapper = (<ReactAvatar />) as ReactElement;
     isEqual(vueWrapper, reactWrapper);
   });
   it("renders to the same output as the React version: title is true", () => {
     const vueWrapper = mount(VueAvatar, {
       props: {
+        id: defaultId,
         title: true,
       },
     });
@@ -359,6 +382,7 @@ describe("Avatar - `title` prop", () => {
     // `title` is false
     let vueWrapper = mount(VueAvatar, {
       props: {
+        id: defaultId,
         variant: variant,
         title: false,
       },
@@ -371,6 +395,7 @@ describe("Avatar - `title` prop", () => {
     // `title` is true
     vueWrapper = mount(VueAvatar, {
       props: {
+        id: defaultId,
         variant: variant,
         title: true,
       },
@@ -386,6 +411,7 @@ describe("Avatar - `title` prop", () => {
     // `title` is false
     let vueWrapper = mount(VueAvatar, {
       props: {
+        id: defaultId,
         variant: variant,
         title: false,
       },
@@ -398,6 +424,7 @@ describe("Avatar - `title` prop", () => {
     // `title` is true
     vueWrapper = mount(VueAvatar, {
       props: {
+        id: defaultId,
         variant: variant,
         title: true,
       },
@@ -413,6 +440,7 @@ describe("Avatar - `title` prop", () => {
     // `title` is false
     let vueWrapper = mount(VueAvatar, {
       props: {
+        id: defaultId,
         variant: variant,
         title: false,
       },
@@ -425,6 +453,7 @@ describe("Avatar - `title` prop", () => {
     // `title` is true
     vueWrapper = mount(VueAvatar, {
       props: {
+        id: defaultId,
         variant: variant,
         title: true,
       },
@@ -440,6 +469,7 @@ describe("Avatar - `title` prop", () => {
     // `title` is false
     let vueWrapper = mount(VueAvatar, {
       props: {
+        id: defaultId,
         variant: variant,
         title: false,
       },
@@ -452,6 +482,7 @@ describe("Avatar - `title` prop", () => {
     // `title` is true
     vueWrapper = mount(VueAvatar, {
       props: {
+        id: defaultId,
         variant: variant,
         title: true,
       },
@@ -467,6 +498,7 @@ describe("Avatar - `title` prop", () => {
     // `title` is false
     let vueWrapper = mount(VueAvatar, {
       props: {
+        id: defaultId,
         variant: variant,
         title: false,
       },
@@ -479,6 +511,7 @@ describe("Avatar - `title` prop", () => {
     // `title` is true
     vueWrapper = mount(VueAvatar, {
       props: {
+        id: defaultId,
         variant: variant,
         title: true,
       },
@@ -494,6 +527,7 @@ describe("Avatar - `title` prop", () => {
     // `title` is false
     let vueWrapper = mount(VueAvatar, {
       props: {
+        id: defaultId,
         variant: variant,
         title: false,
       },
@@ -506,6 +540,7 @@ describe("Avatar - `title` prop", () => {
     // `title` is true
     vueWrapper = mount(VueAvatar, {
       props: {
+        id: defaultId,
         variant: variant,
         title: true,
       },

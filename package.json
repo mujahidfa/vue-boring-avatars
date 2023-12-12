@@ -23,7 +23,9 @@
     "avatar placeholder"
   ],
   "type": "module",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "main": "./dist/vue-boring-avatars.umd.cjs",
   "module": "./dist/vue-boring-avatars.js",
   "exports": {
@@ -43,15 +45,17 @@
     "type-check": "vue-tsc --noEmit -p tsconfig.vitest.json --composite false",
     "test-only": "vitest --environment jsdom",
     "build-only": "vite build",
-    "gen-types": "vue-typegen gen -s src -o temp && move-cli temp/components/Avatar.vue.d.ts dist/vue-boring-avatars.d.ts && rimraf -r temp"
+    "gen-types": "vue-tsc --declaration --emitDeclarationOnly --project tsconfig.vitest.json --outDir temp && move-cli temp/src/components/Avatar.vue.d.ts dist/vue-boring-avatars.d.ts && rimraf -r temp && rimraf demo/App.vue.d.ts demo/main.d.ts"
   },
   "peerDependencies": {
     "vue": "^3.0.0"
   },
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.2.0",
-    "@types/jsdom": "^20.0.0",
-    "@types/node": "^16.11.62",
+    "@types/jsdom": "^21.1.6",
+    "@types/node": "^20.10.4",
+    "@types/react": "^18.2.43",
+    "@types/react-dom": "^18.2.17",
     "@vitejs/plugin-vue": "^3.1.0",
     "@vue/eslint-config-prettier": "^7.0.0",
     "@vue/eslint-config-typescript": "^11.0.2",
@@ -66,14 +70,13 @@
     "npm-run-all": "^4.1.5",
     "prettier": "^2.7.1",
     "prop-types": "^15.8.1",
-    "react": "16.14.0",
-    "react-dom": "16.14.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
     "rimraf": "^3.0.2",
     "typescript": "~4.7.4",
     "vite": "^3.1.4",
     "vitest": "^0.23.4",
     "vue": "^3.2.40",
-    "vue-tsc": "^0.40.13",
-    "vue-typegen": "^0.2.0"
+    "vue-tsc": "^0.40.13"
   }
 }

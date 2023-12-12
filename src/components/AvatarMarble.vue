@@ -9,7 +9,7 @@
   >
     <title v-if="title">{{ name }}</title>
     <mask
-      id="mask__marble"
+      :id="id"
       maskUnits="userSpaceOnUse"
       :x="0"
       :y="0"
@@ -23,7 +23,7 @@
         fill="#FFFFFF"
       />
     </mask>
-    <g mask="url(#mask__marble)">
+    <g :mask="`url(#${id})`">
       <rect :width="SIZE" :height="SIZE" :fill="properties[0].color" />
       <path
         filter="url(#prefix__filter0_f)"
@@ -86,6 +86,11 @@ function generateColors(name: string, colors: string[]) {
 
 export default defineComponent({
   props: {
+    id: {
+      type: String,
+      required: false,
+      default: "mask__marble",
+    },
     colors: {
       type: Array as PropType<string[]>,
       required: true,

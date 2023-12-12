@@ -9,7 +9,7 @@
   >
     <title v-if="title">{{ name }}</title>
     <mask
-      id="mask__ring"
+      :id="id"
       maskUnits="userSpaceOnUse"
       :x="0"
       :y="0"
@@ -23,7 +23,7 @@
         fill="#FFFFFF"
       />
     </mask>
-    <g mask="url(#mask__ring)">
+    <g :mask="`url(#${id})`">
       <path d="M0 0h90v45H0z" :fill="ringColors[0]" />
       <path d="M0 45h90v45H0z" :fill="ringColors[1]" />
       <path d="M83 45a38 38 0 00-76 0h76z" :fill="ringColors[2]" />
@@ -67,6 +67,11 @@ function generateColors(name: string, colors: string[]) {
 
 export default defineComponent({
   props: {
+    id: {
+      type: String,
+      required: false,
+      default: "mask__ring",
+    },
     colors: {
       type: Array as PropType<string[]>,
       required: true,

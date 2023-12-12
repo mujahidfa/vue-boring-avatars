@@ -1,8 +1,8 @@
 import download from "github-directory-downloader";
 import fs from "fs/promises";
 
-// boring-avatars v1.7.0 commit SHA
-const GITHUB_SHA = "11fd1370d36f0b2f0804d803a7f94846ae9706af";
+// boring-avatars v1.10.1 commit SHA
+const GITHUB_SHA = "40a8be0d08f1a0d3aa318ef981fedbb2262d91fb"; //"11fd1370d36f0b2f0804d803a7f94846ae9706af";
 
 // Clone the src of boring-avatars
 await download(

@@ -29,11 +29,11 @@ CDN:
 ```html
 <!-- ESM version -->
 <script type="module">
-  import Avatar from 'https://unpkg.com/vue-boring-avatars/dist/vue-boring-avatars.js'
+  import Avatar from "https://unpkg.com/vue-boring-avatars/dist/vue-boring-avatars.js";
 </script>
 
 <!-- UMD version -->
-<script src="https://unpkg.com/vue-boring-avatars/dist/vue-boring-avatars.umd.cjs"></script>                                                                
+<script src="https://unpkg.com/vue-boring-avatars/dist/vue-boring-avatars.umd.cjs"></script>
 ```
 
 ## Props
@@ -60,6 +60,8 @@ Props:
   - Accepts a string of colors.
   - Default: `["#92A1C6", "#146A7C", "#F0AB3D", "#C271B4", "#C20D90"]`
   - Determines the range of colors in the Avatar.
+- `id`: string
+  - ID for the SVG element.
 
 ## Usage
 
@@ -81,7 +83,6 @@ export default {
 </script>
 ```
 
-
 Basic usage with `<script setup>` (with default props):
 
 ```vue
@@ -98,12 +99,7 @@ With props:
 
 ```vue
 <template>
-  <Avatar 
-    :size="80" 
-    variant="bauhaus"
-    name="Mujahid Anuar" 
-    :colors="colors" 
-  />
+  <Avatar :size="80" variant="bauhaus" name="Mujahid Anuar" :colors="colors" />
 </template>
 
 <script>
@@ -112,8 +108,8 @@ import Avatar from "vue-boring-avatars";
 export default {
   data() {
     return {
-      colors: ["#92A1C6", "#146A7C", "#F0AB3D", "#C271B4", "#C20D90"]
-    }
+      colors: ["#92A1C6", "#146A7C", "#F0AB3D", "#C271B4", "#C20D90"],
+    };
   },
   components: {
     Avatar,
@@ -130,11 +126,29 @@ With Composition API:
   <input type="number" v-model.number="size" />
 
   <Avatar :size="size" variant="bauhaus" :name="name" />
-  <Avatar :size="size" variant="beam" :name="name" :square="true" :title="true" />
+  <Avatar
+    :size="size"
+    variant="beam"
+    :name="name"
+    :square="true"
+    :title="true"
+  />
   <Avatar :size="size" variant="marble" :name="name" />
-  <Avatar :size="size" variant="pixel" :name="name" :square="true" :title="true"/>
+  <Avatar
+    :size="size"
+    variant="pixel"
+    :name="name"
+    :square="true"
+    :title="true"
+  />
   <Avatar :size="size" variant="ring" :name="name" />
-  <Avatar :size="size" variant="sunset" :name="name" :square="true" :title="true" />
+  <Avatar
+    :size="size"
+    variant="sunset"
+    :name="name"
+    :square="true"
+    :title="true"
+  />
 </template>
 
 <script lang="ts">

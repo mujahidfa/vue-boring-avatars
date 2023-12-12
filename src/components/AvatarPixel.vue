@@ -9,7 +9,7 @@
   >
     <title v-if="title">{{ name }}</title>
     <mask
-      id="mask__pixel"
+      :id="id"
       mask-type="alpha"
       maskUnits="userSpaceOnUse"
       :x="0"
@@ -24,7 +24,7 @@
         fill="#FFFFFF"
       />
     </mask>
-    <g mask="url(#mask__pixel)">
+    <g :mask="`url(#${id})`">
       <rect :width="10" :height="10" :fill="pixelColors[0]" />
       <rect :x="20" :width="10" :height="10" :fill="pixelColors[1]" />
       <rect :x="40" :width="10" :height="10" :fill="pixelColors[2]" />
@@ -114,6 +114,11 @@ function generateColors(name: string, colors: string[]) {
 
 export default defineComponent({
   props: {
+    id: {
+      type: String,
+      required: false,
+      default: "mask__pixel",
+    },
     colors: {
       type: Array as PropType<string[]>,
       required: true,
