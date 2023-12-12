@@ -27,7 +27,7 @@ export const getAngle = (x: number, y: number): number => {
 export const getUnit = (
   number: number,
   range: number,
-  index?: number
+  index?: number,
 ): number => {
   const value = number % range;
 
@@ -39,7 +39,7 @@ export const getUnit = (
 export const getRandomColor = (
   number: number,
   colors: Array<string>,
-  range: number
+  range: number,
 ) => {
   return colors[number % range];
 };

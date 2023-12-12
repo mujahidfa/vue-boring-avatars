@@ -7,7 +7,7 @@ const GITHUB_SHA = "40a8be0d08f1a0d3aa318ef981fedbb2262d91fb"; //"11fd1370d36f0b
 // Clone the src of boring-avatars
 await download(
   `https://github.com/boringdesigners/boring-avatars/tree/${GITHUB_SHA}/src/lib`,
-  "./react-boring-avatars/"
+  "./react-boring-avatars/",
 );
 
 // Rename React component .js files to .jsx
@@ -25,6 +25,6 @@ const components = [
 for (const component of components) {
   await fs.rename(
     `./react-boring-avatars/components/${component}.js`,
-    `./react-boring-avatars/components/${component}.jsx`
+    `./react-boring-avatars/components/${component}.jsx`,
   );
 }

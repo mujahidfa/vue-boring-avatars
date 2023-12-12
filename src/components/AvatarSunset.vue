@@ -73,7 +73,7 @@ function generateColors(name: string, colors: string[]) {
   const range = colors && colors.length;
 
   const colorsList = Array.from({ length: ELEMENTS }, (_, i) =>
-    getRandomColor(numFromName + i, colors, range)
+    getRandomColor(numFromName + i, colors, range),
   );
 
   return colorsList;
@@ -111,7 +111,7 @@ export default defineComponent({
   },
   setup(props) {
     const sunsetColors = computed(() =>
-      generateColors(props.name, props.colors)
+      generateColors(props.name, props.colors),
     );
     const formattedName = computed(() => props.name.replace(/\s/g, ""));
 

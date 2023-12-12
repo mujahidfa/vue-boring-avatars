@@ -49,7 +49,7 @@ function generateColors(name: string, colors: string[]) {
   const numFromName = hashCode(name);
   const range = colors && colors.length;
   const colorsShuffle = Array.from({ length: COLORS }, (_, i) =>
-    getRandomColor(numFromName + i, colors, range)
+    getRandomColor(numFromName + i, colors, range),
   );
   const colorsList = [];
   colorsList[0] = colorsShuffle[0];

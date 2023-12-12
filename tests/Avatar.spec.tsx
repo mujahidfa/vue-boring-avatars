@@ -34,7 +34,7 @@ function minify(html: string): string {
     {
       removeLineBreaks: true,
       removeHTMLComments: true,
-    }
+    },
   ).result;
 }
 
